@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := clean
+.DEFAULT_GOAL := and.noun.analizer.hfst
 
 and.noun.analizer.hfst: and.noun.generator.hfst
 	hfst-invert $< -o $@

@@ -122,5 +122,5 @@ clean: check
 ```
 #!/bin/sh
 
-make check
+make clean
 ```

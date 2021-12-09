@@ -99,7 +99,7 @@ read.csv("tests.csv")
 После того, как мы поместили все файлы вместе, нам нужно исправить `Makefile`:
 
 ```
-.DEFAULT_GOAL := clean
+.DEFAULT_GOAL := and.noun.analizer.hfst
 
 and.noun.analizer.hfst: and.noun.generator.hfst
 	hfst-invert $< -o $@
@@ -122,5 +122,6 @@ clean: check
 ```
 #!/bin/sh
 
+make check
 make clean
 ```

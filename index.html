@@ -262,7 +262,7 @@ div.tocify {
 <pre class="bash"><code>$ ls multiple_files</code></pre>
 <pre><code>a_1.csv
 a_1.txt
-b_2.csv
+b_2_2.csv
 c_1.txt
 d_2.txt
 ee_1.txt
@@ -289,7 +289,7 @@ y_1.txt
 z_2.txt</code></pre>
 <p>Мы можем вывести все файлы содержащие двойку, добавив <code>*</code> – любое количество символов:</p>
 <pre class="bash"><code>$ ls multiple_files/*2*</code></pre>
-<pre><code>multiple_files/b_2.csv
+<pre><code>multiple_files/b_2_2.csv
 multiple_files/d_2.txt
 multiple_files/f_2.txt
 multiple_files/hh_2.txt
@@ -305,7 +305,7 @@ multiple_files/z_2.txt</code></pre>
 <p>Это же используют для поиска файлов с каким-либо определенным расширением:</p>
 <pre class="bash"><code>$ ls multiple_files/*.csv</code></pre>
 <pre><code>multiple_files/a_1.csv
-multiple_files/b_2.csv
+multiple_files/b_2_2.csv
 multiple_files/n_2.csv
 multiple_files/oo_1.csv
 multiple_files/pp_2.csv
@@ -358,7 +358,7 @@ multiple_files/u_1.txt</code></pre>
 <li><code>bash</code> скрипт, который Ник написал в прошлом году (можно скачать <a href="https://raw.githubusercontent.com/agricolamz/2021.12.09_gitignore_tests_githooks/master/compare.sh">здесь</a>)</li>
 </ul>
 <p>После того, как мы поместили все файлы вместе, нам нужно исправить <code>Makefile</code>:</p>
-<pre><code>.DEFAULT_GOAL := clean
+<pre><code>.DEFAULT_GOAL := and.noun.analizer.hfst
 
 and.noun.analizer.hfst: and.noun.generator.hfst
     hfst-invert $&lt; -o $@
@@ -377,6 +377,7 @@ clean: check
 <p>Кажется удобным, чтобы проверки, которые мы сейчас обсудили, можно было проводить каждый раз перед тем как комитить изменения на GitHub. Для этого были предуманы <code>git hooks</code> (для углубления почитайте <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">документацию</a>). В нашем случае нужно сделать файл <code>.git/hooks/pre-commit</code> со следующим содержанием:</p>
 <pre><code>#!/bin/sh
 
+make check
 make clean</code></pre>
 </div>
 <div class="footnotes">

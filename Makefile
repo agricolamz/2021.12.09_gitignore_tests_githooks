@@ -7,6 +7,6 @@ and.noun.generator.hfst: and.noun.lexd
 test.pass.txt: tests.csv
 	awk -F, '$$3 == "pass" {print $$1 ":" $$2}' $^ | sort -u > $@
 check: and.noun.generator.hfst test.pass.txt
-	bash compare.sh $< test.pass.txt || exit $$?
+	bash compare.sh $< test.pass.txt
 clean: check
 	rm test.*

@@ -377,7 +377,7 @@ clean: check
 <p>Кажется удобным, чтобы проверки, которые мы сейчас обсудили, можно было проводить каждый раз перед тем как комитить изменения на GitHub. Для этого были предуманы <code>git hooks</code> (для углубления почитайте <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">документацию</a>). В нашем случае нужно сделать файл <code>.git/hooks/pre-commit</code> со следующим содержанием:</p>
 <pre><code>#!/bin/sh
 
-make check</code></pre>
+make clean</code></pre>
 </div>
 <div class="footnotes">
 <hr />

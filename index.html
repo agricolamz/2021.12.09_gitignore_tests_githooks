@@ -370,15 +370,15 @@ check: and.noun.generator.hfst test.pass.txt
     bash compare.sh $&lt; test.pass.txt
 clean: check
     rm test.*</code></pre>
-<p>Теперь, если изменить файл <code>.lexd</code> (а именно как-то изменить форму супер-элатива), то на команду <code>make</code> будет выдаваться ошибка.</p>
+<p>Теперь, если изменить файл <code>.lexd</code> (а именно как-то изменить форму супер-элатива), то на команду <code>make check</code> будет выдаваться ошибка.</p>
+<p>Так как <code>bash</code> скрипт Ника “мусорит”, я добавил строку <code>test.*</code> в <code>.gitignore</code>, но при желании можно еще запустить команду <code>make clean</code>.</p>
 </div>
 <div id="git-hooks" class="section level1" number="5">
 <h1 number="5"><span class="header-section-number">5</span> <code>git hooks</code></h1>
 <p>Кажется удобным, чтобы проверки, которые мы сейчас обсудили, можно было проводить каждый раз перед тем как комитить изменения на GitHub. Для этого были предуманы <code>git hooks</code> (для углубления почитайте <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">документацию</a>). В нашем случае нужно сделать файл <code>.git/hooks/pre-commit</code> со следующим содержанием:</p>
 <pre><code>#!/bin/sh
 
-make check
-make clean</code></pre>
+make check</code></pre>
 </div>
 <div class="footnotes">
 <hr />
